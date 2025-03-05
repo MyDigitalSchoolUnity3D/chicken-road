@@ -58,7 +58,6 @@ public class RoadsGenerator : MonoBehaviour
         Renderer renderer = gameObject.GetComponentInChildren<Renderer>();
         if (renderer != null)
         {
-            Debug.Log(" BLOUUUUUH" + renderer.bounds.size.z);
             return renderer.bounds.size.z;
         }
 

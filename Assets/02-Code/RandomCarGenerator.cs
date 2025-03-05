@@ -6,10 +6,12 @@ public class RandomCarGenerator : MonoBehaviour
     public Transform leftSpawnPoint;
     public Transform rightSpawnPoint;
     public bool spawnLeft;
+    public float carSpeed;
 
     void Start()
     {
         spawnLeft = Random.value > 0.5f;
+        carSpeed = Random.Range(5f, 15f);
 
         InvokeRepeating(nameof(SpawnRandomCar), 0.2f, Random.Range(1f, 3f));
     }
@@ -21,8 +23,6 @@ public class RandomCarGenerator : MonoBehaviour
             Debug.LogWarning("Aucun prefab de voiture assigné !");
             return;
         }
-
-        float carSpeed = Random.Range(5f, 15f);
 
         int randomIndex = Random.Range(0, carPrefabs.Length);
         GameObject selectedCar = carPrefabs[randomIndex];

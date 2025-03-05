@@ -1521,6 +1521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 426206444232385405}
+  - component: {fileID: 8742962703696786082}
   m_Layer: 0
   m_Name: RouteDouble
   m_TagString: Untagged
@@ -1607,6 +1608,29 @@ Transform:
   - {fileID: 4156089941157477863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &8742962703696786082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426206444232385345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b160dfa33d5ff824d9ae98cb9ee8421e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefabs:
+  - {fileID: 9181701585240893179, guid: 350735ef3b951a54ba6ec49c663c667e, type: 3}
+  - {fileID: 7769690492283750692, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
+  - {fileID: 8663673574762740106, guid: 3f83a5a9639ce0249ac0d7df9b8c40b9, type: 3}
+  - {fileID: 6452039197999972492, guid: 813df9801c30e63479934f054db68d12, type: 3}
+  - {fileID: 8160049463398649625, guid: 66f97e68ed002b74f8e181d1c3108e14, type: 3}
+  - {fileID: 8924721617483827851, guid: 50bc8a305f45f224abedbbaaa3046911, type: 3}
+  - {fileID: 9189002782948893723, guid: bf49b486ffae2c2429b4fd41e96023c3, type: 3}
+  leftSpawnPoint: {fileID: 8912014672806893819}
+  rightSpawnPoint: {fileID: 1267353897143250915}
+  spawnLeft: 0
 --- !u!1 &426206444360409577
 GameObject:
   m_ObjectHideFlags: 0
