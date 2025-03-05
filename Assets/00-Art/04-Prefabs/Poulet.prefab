@@ -985,8 +985,7 @@ GameObject:
   - component: {fileID: 3019265135064332303}
   - component: {fileID: 3019265135064332300}
   - component: {fileID: 2565620431396071227}
-  - component: {fileID: 5040377984946150253}
-  - component: {fileID: -5172577016807090851}
+  - component: {fileID: 7756498877181436734}
   m_Layer: 0
   m_Name: Poulet
   m_TagString: Untagged
@@ -1127,7 +1126,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5040377984946150253
+--- !u!114 &7756498877181436734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1139,28 +1138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5293354515ecd058a2370e0b005742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &-5172577016807090851
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3019265135064332301}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 86f780a3e4b50a2feb974334a8f846b5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3019265135216058430
 GameObject:
   m_ObjectHideFlags: 0
