@@ -29,7 +29,7 @@ public class RandomCarGenerator : MonoBehaviour
 
         Transform spawnPoint = spawnLeft ? leftSpawnPoint : rightSpawnPoint;
         GameObject carInstance = Instantiate(selectedCar, spawnPoint.position, spawnPoint.rotation);
-        carInstance.transform.Rotate(0f, spawnLeft ? 90f : -90f, 0f);
+        carInstance.transform.Rotate(0f, spawnLeft ? 0f : 180f, 0f);
 
         CarMover mover = carInstance.AddComponent<CarMover>();
         mover.speed = spawnLeft ? carSpeed : -carSpeed;
