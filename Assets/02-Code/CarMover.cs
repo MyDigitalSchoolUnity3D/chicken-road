@@ -12,6 +12,6 @@ public class CarMover : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.right * speed * Time.deltaTime;
+        transform.position += speed * Time.deltaTime * Vector3.right;
     }
 }

@@ -50,10 +50,10 @@ public class RoadsGenerator : MonoBehaviour
         GameObject instance = Instantiate(prefab, lastRoadPosition, safeZone.rotation);
         roadQueue.Enqueue(instance);
 
-        lastRoadLength = getZLength(instance);
+        lastRoadLength = GetZLength(instance);
     }
 
-    float getZLength(GameObject gameObject)
+    float GetZLength(GameObject gameObject)
     {
         Renderer renderer = gameObject.GetComponentInChildren<Renderer>();
         if (renderer != null)

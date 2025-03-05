@@ -11,7 +11,7 @@ public class RandomCarGenerator : MonoBehaviour
     {
         spawnLeft = Random.value > 0.5f;
 
-        InvokeRepeating("SpawnRandomCar", 0.2f, Random.Range(1f, 3f));
+        InvokeRepeating(nameof(SpawnRandomCar), 0.2f, Random.Range(1f, 3f));
     }
 
     void SpawnRandomCar()
