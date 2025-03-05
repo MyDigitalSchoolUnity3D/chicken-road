@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2288590974604754665
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6047198061611400298, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_Name
+      value: SafeZoneStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6047198061611400298, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4840927210123855336}
+  m_SourcePrefab: {fileID: 100100000, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+--- !u!4 &5056147057811096928 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6478920268525648777, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+  m_PrefabInstance: {fileID: 2288590974604754665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5487992135686554243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6047198061611400298, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+  m_PrefabInstance: {fileID: 2288590974604754665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4840927210123855336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487992135686554243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2029332a9990b43b91522403eb827b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefabs:
+  - {fileID: 7769690492283750692, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
+  - {fileID: 8663673574762740106, guid: 3f83a5a9639ce0249ac0d7df9b8c40b9, type: 3}
+  - {fileID: 6452039197999972492, guid: 813df9801c30e63479934f054db68d12, type: 3}
+  - {fileID: 8160049463398649625, guid: 66f97e68ed002b74f8e181d1c3108e14, type: 3}
+  - {fileID: 8924721617483827851, guid: 50bc8a305f45f224abedbbaaa3046911, type: 3}
+  - {fileID: 9189002782948893723, guid: bf49b486ffae2c2429b4fd41e96023c3, type: 3}
+  - {fileID: 9181701585240893179, guid: 350735ef3b951a54ba6ec49c663c667e, type: 3}
+  roadPrefab: {fileID: 426206444232385345, guid: 14dd4a739f925a17eac871f43f721814, type: 3}
+  safeZonePrefab: {fileID: 6047198061611400298, guid: 6aceafc09caaf901ebbaae8287a75113, type: 3}
+  safeZone: {fileID: 5056147057811096928}
+  roadsToGenerateOnStart: 10
+  lastRoadLength: 0
