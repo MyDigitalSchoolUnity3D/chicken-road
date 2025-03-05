@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
     private Transform _playerTransform;
     private Transform _camera;
+    private int _score = 0;
 
     private void MovePlayer(Vector3 direction, Quaternion rotation)
     {
@@ -19,6 +21,18 @@ public class PlayerControls : MonoBehaviour
                 _playerTransform.position.z - 6f
             );
         }
+
+        SetScore(_playerTransform.position.z);
+    }
+
+    private void SetScore(float z)
+    {
+        // Incrémente le score
+        if (z * 10 > _score)
+            _score = (int)Math.Floor(z) * 10;
+
+        // Met à jour le score dans la console
+        Debug.Log("Score : " + _score);
     }
 
     private void Start()
