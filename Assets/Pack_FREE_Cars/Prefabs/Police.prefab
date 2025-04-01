@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 2474458940805093291}
   - component: {fileID: 351032416405131765}
   - component: {fileID: 676853128897248595}
+  - component: {fileID: 3620384300547569386}
   m_Layer: 0
   m_Name: Police
   m_TagString: Untagged
@@ -314,6 +315,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3620384300547569386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452039197999972492}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c6a71035e576543853de8ffd8dc173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 10
 --- !u!1 &6685709738900195085
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,11 +514,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.057
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.41
+      value: 2.245
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalRotation.w

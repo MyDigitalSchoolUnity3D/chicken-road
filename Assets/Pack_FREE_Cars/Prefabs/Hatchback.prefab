@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 4080312293609642034}
   - component: {fileID: 8019252779777868047}
   - component: {fileID: 5440648754293552033}
+  - component: {fileID: -861893075404443010}
   m_Layer: 0
   m_Name: Hatchback
   m_TagString: Untagged
@@ -486,6 +487,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-861893075404443010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769690492283750692}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c6a71035e576543853de8ffd8dc173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 10
 --- !u!1001 &3149685263597576443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -537,6 +551,10 @@ PrefabInstance:
     - target: {fileID: 5784853387271756570, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_Name
       value: CarCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971759380778086357, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
+      propertyPath: launchForce
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

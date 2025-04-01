@@ -490,6 +490,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3019265135064332300, guid: 506a734f35c800c678b2fb6431659980, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3019265135064332301, guid: 506a734f35c800c678b2fb6431659980, type: 3}
       propertyPath: m_Name
       value: Poulet

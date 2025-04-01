@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 597926475644104348}
   - component: {fileID: 4617474612924526033}
   - component: {fileID: 5625950352936333923}
+  - component: {fileID: -7056556509591060818}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Untagged
@@ -486,6 +487,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7056556509591060818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663673574762740106}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c6a71035e576543853de8ffd8dc173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 10
 --- !u!1001 &460126818852535416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,11 +514,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.41
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalRotation.w

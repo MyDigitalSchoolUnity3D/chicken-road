@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 598507913756302931}
   - component: {fileID: 4559198582719517803}
   - component: {fileID: 1412231578468359012}
+  - component: {fileID: -9061339464457407054}
   m_Layer: 0
   m_Name: Towtruck
   m_TagString: Untagged
@@ -488,6 +489,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-9061339464457407054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924721617483827851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c6a71035e576543853de8ffd8dc173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 10
 --- !u!1001 &1993346850798292196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -502,11 +516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.41
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalRotation.w

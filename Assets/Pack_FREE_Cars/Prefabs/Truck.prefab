@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 2617488465090207563}
   - component: {fileID: 6297833176270096930}
   - component: {fileID: 6765354224506064973}
+  - component: {fileID: -4965506013946805052}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -660,6 +661,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.0382428, y: 3.35, z: 7.676113}
   m_Center: {x: -0.000001847744, y: 1.7138358, z: -1.1384104}
+--- !u!114 &-4965506013946805052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9189002782948893723}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c6a71035e576543853de8ffd8dc173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 10
 --- !u!1001 &6618068273847999088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,11 +688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.41
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 4212762907006539550, guid: 5de237ff37832844d9a631ce73dea26d, type: 3}
       propertyPath: m_LocalRotation.w
