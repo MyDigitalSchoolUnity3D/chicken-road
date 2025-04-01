@@ -42,40 +42,51 @@ public class RoadsGenerator : MonoBehaviour
 
     void GenerateRoad(Transform playerTransform = null)
     {
-        // Calculer la nouvelle position (collée à la dernière route)
-        lastRoadPosition += Vector3.forward * lastRoadLength;
+        ComputeLastRoadPosition();
 
-        // 1 chance sur 6 de générer une safe zone
-        GameObject prefab = null;
+        GameObject prefab = GenerateRoadOrSafeZonePrefab();
 
-        if (Random.value < 1f / 6f)
-        {
-            prefab = safeZonePrefab;
-        }
-        else
-        {
-            prefab = roadPrefab;
-        }
-
-        GameObject instance = Instantiate(prefab, lastRoadPosition, safeZone.rotation);
-        roadQueue.Enqueue(instance);
+        GameObject instance = GenerateInstance(prefab);
 
         lastRoadLength = GetZLength(instance);
 
-        // Si le joueur est suffisamment loin devant la route (on laisse un petit buffer) ET qu'il y a + de 30 routes
-        // On détruit la route la plus ancienne
-        GameObject oldestRoad = roadQueue.Peek();
-        float roadZ = oldestRoad.transform.position.z;
-        float roadLength = GetZLength(oldestRoad);
-        if (playerTransform != null && playerTransform.position.z > roadZ + roadLength + 0.5f && roadQueue.Count > 30)
+        DestroyOldRoads(playerTransform);
+    }
+
+    GameObject GenerateInstance(GameObject prefab)
+    {
+        GameObject instance = Instantiate(
+            original: prefab,
+            position: lastRoadPosition,
+            rotation: safeZone.rotation
+        );
+
+        roadQueue.Enqueue(instance);
+
+        return instance;
+    }
+
+    GameObject GenerateRoadOrSafeZonePrefab()
+    {
+        // 1 chance sur 6 de générer une safe zone
+        if (Random.value < 1f / 6f)
         {
-            Destroy(roadQueue.Dequeue());
+            return safeZonePrefab;
         }
+
+        return roadPrefab;
+    }
+
+    void ComputeLastRoadPosition()
+    {
+        // Calculer la nouvelle position (collée à la dernière route)
+        lastRoadPosition += Vector3.forward * lastRoadLength;
     }
 
     float GetZLength(GameObject gameObject)
     {
         Renderer renderer = gameObject.GetComponentInChildren<Renderer>();
+
         if (renderer != null)
         {
             return renderer.bounds.size.z;
@@ -87,5 +98,21 @@ public class RoadsGenerator : MonoBehaviour
     void OnPlayerMovedForward(Transform playerTransform)
     {
         GenerateRoad(playerTransform);
+    }
+
+    void DestroyOldRoads(Transform playerTransform = null)
+    {
+        if (! playerTransform) return;
+
+        // Si le joueur est suffisamment loin devant la route (on laisse un petit buffer) ET qu'il y a + de 30 routes
+        // On détruit la route la plus ancienne
+        GameObject oldestRoad = roadQueue.Peek();
+        float roadZ = oldestRoad.transform.position.z;
+        float roadLength = GetZLength(oldestRoad);
+
+        if (playerTransform.position.z > roadZ + roadLength + 0.5f && roadQueue.Count > 30)
+        {
+            Destroy(roadQueue.Dequeue());
+        }
     }
 }

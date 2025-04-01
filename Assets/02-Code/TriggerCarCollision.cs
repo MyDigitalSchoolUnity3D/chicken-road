@@ -13,8 +13,6 @@ public class TriggerCarCollision : MonoBehaviour
         LaunchPouletInSpace(other);
 
         // Dispatch playerKilledEvent
-        Debug.Log("Player killed by car!");
-        Debug.Log(playerKilledEvent != null ? "Event is not null" : "Event is null");
         if (playerKilledEvent != null)
         {
             playerKilledEvent.Invoke();

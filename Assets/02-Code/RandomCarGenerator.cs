@@ -20,18 +20,52 @@ public class RandomCarGenerator : MonoBehaviour
     {
         if (carPrefabs.Length == 0)
         {
-            Debug.LogWarning("Aucun prefab de voiture assigné !");
-            return;
+            throw new System.Exception("Aucun prefab de voiture assigné !");
         }
 
-        int randomIndex = Random.Range(0, carPrefabs.Length);
-        GameObject selectedCar = carPrefabs[randomIndex];
+        GameObject selectedCar = GetRandomCarPrefab();
+        Transform spawnPoint = GetRandomSpawnPoint();
+        GameObject carInstance = InstantiateCar(selectedCar, spawnPoint);
+        RotateCar(carInstance, spawnLeft);
+        AddCarMoverComponent(carInstance, spawnLeft);
+    }
 
-        Transform spawnPoint = spawnLeft ? leftSpawnPoint : rightSpawnPoint;
-        GameObject carInstance = Instantiate(selectedCar, spawnPoint.position, spawnPoint.rotation);
-        carInstance.transform.Rotate(0f, spawnLeft ? 0f : 180f, 0f);
+    GameObject GetRandomCarPrefab()
+    {
+        int randomIndex = Random.Range(
+            minInclusive: 0,
+            maxExclusive: carPrefabs.Length
+        );
 
+        return carPrefabs[randomIndex];
+    }
+    
+    Transform GetRandomSpawnPoint()
+    {
+        return spawnLeft ? leftSpawnPoint : rightSpawnPoint;
+    }
+
+    GameObject InstantiateCar(GameObject carPrefab, Transform spawnPoint)
+    {
+        return Instantiate(
+            original: carPrefab,
+            position: spawnPoint.position,
+            rotation: spawnPoint.rotation
+        );
+    }
+
+    void RotateCar(GameObject carInstance, bool isLeft)
+    {
+        carInstance.transform.Rotate(
+            xAngle: 0f,
+            yAngle: isLeft ? 0f : 180f,
+            zAngle: 0f
+        );
+    }
+
+    void AddCarMoverComponent(GameObject carInstance, bool isLeft)
+    {
         CarMover mover = carInstance.AddComponent<CarMover>();
-        mover.speed = spawnLeft ? carSpeed : -carSpeed;
+        mover.speed = isLeft ? carSpeed : -carSpeed;
     }
 }

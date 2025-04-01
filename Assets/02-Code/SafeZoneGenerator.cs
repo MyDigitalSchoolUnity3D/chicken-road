@@ -22,8 +22,11 @@ public class SafeZoneGenerator : MonoBehaviour
         GameObject selectedTree = GetRandomTreePrefab();
         Vector3 randomPosition = GetRandomPosition();
 
-        positions.Add(randomPosition);
-        Instantiate(selectedTree, randomPosition, Quaternion.identity);
+        Instantiate(
+            original: selectedTree,
+            position: randomPosition,
+            rotation: Quaternion.identity
+        );
     }
 
     private GameObject GetRandomTreePrefab()
@@ -45,6 +48,8 @@ public class SafeZoneGenerator : MonoBehaviour
             );
         }
         while(positions.Contains(randomPosition));
+
+        positions.Add(randomPosition);
 
         return randomPosition;
     }
