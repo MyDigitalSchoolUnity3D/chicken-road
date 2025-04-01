@@ -23,6 +23,13 @@ public class PlayerControls : MonoBehaviour
 
     void OnPlayerKilled()
     {
+        StartCoroutine(HandlePlayerDeath());
+    }
+
+    private System.Collections.IEnumerator HandlePlayerDeath()
+    {
+        yield return new WaitForSeconds(1f);
+
         Destroy(_playerTransform.gameObject);
     }
 
