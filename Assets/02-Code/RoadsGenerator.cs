@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-using static PlayerControls;
-
 public class RoadsGenerator : MonoBehaviour
 {
     public GameObject[] carPrefabs;
@@ -64,12 +62,12 @@ public class RoadsGenerator : MonoBehaviour
 
         lastRoadLength = GetZLength(instance);
 
-        // Si le joueur est suffisamment loin devant la route (on laisse un petit buffer) + qu'il y a + de 30 routes
+        // Si le joueur est suffisamment loin devant la route (on laisse un petit buffer) ET qu'il y a + de 30 routes
         // On détruit la route la plus ancienne
         GameObject oldestRoad = roadQueue.Peek();
         float roadZ = oldestRoad.transform.position.z;
         float roadLength = GetZLength(oldestRoad);
-        if (playerTransform && playerTransform.position.z > roadZ + roadLength + 0.5f && roadQueue.Count > 30)
+        if (playerTransform != null && playerTransform.position.z > roadZ + roadLength + 0.5f && roadQueue.Count > 30)
         {
             Destroy(roadQueue.Dequeue());
         }
