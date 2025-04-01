@@ -65,7 +65,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public int GetHighScore()
     {
-        return gameData.score;
+        return gameData.bestScore;
     }
 
     private void OnApplicationQuit()

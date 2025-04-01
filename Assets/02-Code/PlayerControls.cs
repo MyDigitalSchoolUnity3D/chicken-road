@@ -30,7 +30,22 @@ public class PlayerControls : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        Destroy(_playerTransform.gameObject);
+        // Destroy(_playerTransform.gameObject);
+        _playerTransform.gameObject.SetActive(false);
+    }
+
+    public void DefaultPosition()
+    {
+        _playerTransform.gameObject.SetActive(true);
+        _playerTransform.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+
+        _camera.position = new Vector3(
+            _playerTransform.position.x,
+            _camera.position.y,
+            _playerTransform.position.z - 6f
+        );
+
+        score = 0;
     }
 
     private void MovePlayer(Vector3 direction, Quaternion rotation)
@@ -63,6 +78,8 @@ public class PlayerControls : MonoBehaviour
             _camera.position.y + 2f,
             _playerTransform.position.z - 6f
         ), Quaternion.Euler(20, 0, 0));
+
+        score = 0;
     }
 
     public void Update()
@@ -73,10 +90,7 @@ public class PlayerControls : MonoBehaviour
             MovePlayer(Vector3.forward, Quaternion.Euler(0, 0, 0));
 
             // Dispatch PlayerMovedForwardEvent
-            if (playerMovedForwardEvent != null)
-            {
-                playerMovedForwardEvent.Invoke(_playerTransform);
-            }
+            playerMovedForwardEvent?.Invoke(_playerTransform);
         }
         else if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.A))
         {
@@ -106,8 +120,5 @@ public class PlayerControls : MonoBehaviour
             score = (int)Math.Floor(z) * 10;
             _scoreText.SetScore(score);
         }
-
-        // Met à jour le score dans la console
-        Debug.Log("Score : " + score);
     }
 }
