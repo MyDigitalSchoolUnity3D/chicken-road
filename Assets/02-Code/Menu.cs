@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
-    public int score = 100;
     public TextMeshProUGUI scoreText;
 
     public void StartGame()
@@ -20,6 +18,14 @@ public class Menu : MonoBehaviour
 
     public void Start()
     {
-        scoreText.text = "Meilleur score : " + score;
+        if (DataPersistenceManager.instance != null)
+        {
+            scoreText.text = "Meilleur score : " + DataPersistenceManager.instance.GetHighScore();
+        }
+        else
+        {
+            Debug.LogWarning("DataPersistenceManager instance is missing.");
+            scoreText.text = "Meilleur score : 0";
+        }
     }
 }
