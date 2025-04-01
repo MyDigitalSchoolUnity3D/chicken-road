@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class SafeZoneGenerator : MonoBehaviour
 {
     public GameObject[] treePrefabs;
     public Transform safeZone;
     public List<Vector3> positions;
+    public List<GameObject> instances;
 
     void Start()
     {
@@ -17,16 +19,34 @@ public class SafeZoneGenerator : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        DestroyAllTrees();
+    }
+
+    void DestroyAllTrees()
+    {
+        foreach (GameObject instance in instances)
+        {
+            Destroy(instance);
+        }
+
+        instances.Clear();
+        positions.Clear();
+    }
+
     void GenerateTree()
     {
         GameObject selectedTree = GetRandomTreePrefab();
         Vector3 randomPosition = GetRandomPosition();
 
-        Instantiate(
+        GameObject instance = Instantiate(
             original: selectedTree,
             position: randomPosition,
             rotation: Quaternion.identity
         );
+
+        instances.Add(instance);
     }
 
     private GameObject GetRandomTreePrefab()
