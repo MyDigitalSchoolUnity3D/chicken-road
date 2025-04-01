@@ -68,8 +68,8 @@ public class RoadsGenerator : MonoBehaviour
 
     GameObject GenerateRoadOrSafeZonePrefab()
     {
-        // 1 chance sur 6 de générer une safe zone
-        if (Random.value < 1f / 6f)
+        // 1 chance sur 4 de générer une safe zone
+        if (Random.value < 1f / 4f)
         {
             return safeZonePrefab;
         }
