@@ -28,7 +28,7 @@ public class PlayerControls : MonoBehaviour
 
     private System.Collections.IEnumerator HandlePlayerDeath()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         Destroy(_playerTransform.gameObject);
     }
