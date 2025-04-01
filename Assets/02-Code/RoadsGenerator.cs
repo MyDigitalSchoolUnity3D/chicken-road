@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+using static PlayerControls;
+
 public class RoadsGenerator : MonoBehaviour
 {
     public GameObject[] carPrefabs;
@@ -13,6 +15,16 @@ public class RoadsGenerator : MonoBehaviour
 
     private Vector3 lastRoadPosition;
     public float lastRoadLength;
+
+    void Awake()
+    {
+        PlayerControls.playerMovedForwardEvent += OnPlayerMovedForward;
+    }
+
+    void OnDestroy()
+    {
+        PlayerControls.playerMovedForwardEvent -= OnPlayerMovedForward;
+    }
 
     void Start()
     {
@@ -51,6 +63,12 @@ public class RoadsGenerator : MonoBehaviour
         roadQueue.Enqueue(instance);
 
         lastRoadLength = GetZLength(instance);
+
+        // Détruire la route la plus ancienne si on en a plus de 20
+        if (roadQueue.Count > 20)
+        {
+            Destroy(roadQueue.Dequeue());
+        }
     }
 
     float GetZLength(GameObject gameObject)
@@ -62,5 +80,10 @@ public class RoadsGenerator : MonoBehaviour
         }
 
         return 1f;
+    }
+
+    void OnPlayerMovedForward(Transform playerTransform)
+    {
+        GenerateRoad();
     }
 }

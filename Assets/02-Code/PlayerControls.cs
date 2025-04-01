@@ -7,6 +7,9 @@ public class PlayerControls : MonoBehaviour
     private Transform _camera;
     private int _score = 0;
 
+    public delegate void OnPlayerMovedForward(Transform playerTransform);
+    public static event OnPlayerMovedForward playerMovedForwardEvent;
+
     private void MovePlayer(Vector3 direction, Quaternion rotation)
     {
         _playerTransform.position += direction;
@@ -57,6 +60,12 @@ public class PlayerControls : MonoBehaviour
 
             // Déplace le joueur vers le haut
             MovePlayer(Vector3.forward, Quaternion.Euler(0, 0, 0));
+
+            // Dispatch PlayerMovedForwardEvent
+            if (playerMovedForwardEvent != null)
+            {
+                playerMovedForwardEvent.Invoke(_playerTransform);
+            }
         }
         else if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.A))
         {

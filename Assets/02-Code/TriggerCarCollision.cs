@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TriggerCarCollision : MonoBehaviour
 {
-    public float launchForce = 2f;
+    public float launchForce = 10f;
 
     private void OnTriggerEnter(Collider other)
     {
