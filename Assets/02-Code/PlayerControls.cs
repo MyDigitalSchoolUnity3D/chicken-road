@@ -11,6 +11,21 @@ public class PlayerControls : MonoBehaviour
     public delegate void OnPlayerMovedForward(Transform playerTransform);
     public static event OnPlayerMovedForward playerMovedForwardEvent;
 
+    void Awake()
+    {
+        TriggerCarCollision.playerKilledEvent += OnPlayerKilled;
+    }
+
+    void OnDestroy()
+    {
+        TriggerCarCollision.playerKilledEvent -= OnPlayerKilled;
+    }
+
+    void OnPlayerKilled()
+    {
+        Destroy(_playerTransform.gameObject);
+    }
+
     private void MovePlayer(Vector3 direction, Quaternion rotation)
     {
         _playerTransform.position += direction;
