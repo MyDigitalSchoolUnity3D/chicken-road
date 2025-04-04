@@ -22,7 +22,6 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
