@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuEnd : MonoBehaviour
 {
@@ -27,8 +28,9 @@ public class MenuEnd : MonoBehaviour
 
     public void RestartGame()
     {
-        menu.SetActive(false);
-        player.DefaultPosition();
+        SceneManager.LoadScene(
+            sceneName: SceneManager.GetActiveScene().name
+        );
     }
 
     public void QuitGame()

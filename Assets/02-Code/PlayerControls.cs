@@ -34,20 +34,6 @@ public class PlayerControls : MonoBehaviour
         _playerTransform.gameObject.SetActive(false);
     }
 
-    public void DefaultPosition()
-    {
-        _playerTransform.gameObject.SetActive(true);
-        _playerTransform.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
-
-        _camera.position = new Vector3(
-            _playerTransform.position.x,
-            _camera.position.y,
-            _playerTransform.position.z - 6f
-        );
-
-        score = 0;
-    }
-
     private void MovePlayer(Vector3 direction, Quaternion rotation)
     {
         _playerTransform.position += direction;
