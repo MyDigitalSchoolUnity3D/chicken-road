@@ -104,13 +104,13 @@ public class RoadsGenerator : MonoBehaviour
     {
         if (! playerTransform) return;
 
-        // Si le joueur est suffisamment loin devant la route (on laisse un petit buffer) ET qu'il y a + de 30 routes
+        // Si le joueur est suffisamment loin devant la route (on laisse un petit buffer 2.5f) ET qu'il y a + de 30 routes
         // On détruit la route la plus ancienne
         GameObject oldestRoad = roadQueue.Peek();
         float roadZ = oldestRoad.transform.position.z;
         float roadLength = GetZLength(oldestRoad);
 
-        if (playerTransform.position.z > roadZ + roadLength + 0.5f && roadQueue.Count > 30)
+        if (playerTransform.position.z > roadZ + roadLength + 2.5f && roadQueue.Count > 30)
         {
             Destroy(roadQueue.Dequeue());
         }

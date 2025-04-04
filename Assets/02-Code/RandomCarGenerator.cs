@@ -7,13 +7,31 @@ public class RandomCarGenerator : MonoBehaviour
     public Transform rightSpawnPoint;
     public bool spawnLeft;
     public float carSpeed;
+    public float repeatRate;
 
     void Start()
     {
         spawnLeft = Random.value > 0.5f;
-        carSpeed = Random.Range(5f, 15f);
 
-        InvokeRepeating(nameof(SpawnRandomCar), 0.2f, Random.Range(1f, 3f));
+        ComputeCarSpeedWithPlayerScore();
+
+        InvokeRepeating(
+            methodName: nameof(SpawnRandomCar),
+            time: 0.2f,
+            repeatRate: Random.Range(1f, 4f)
+        );
+    }
+
+    void ComputeCarSpeedWithPlayerScore()
+    {
+        int score = PlayerControls.score;
+        float normalizedScore = Mathf.Clamp01(score / 500f);
+
+        carSpeed = Mathf.Lerp(
+            a: 8f,
+            b: 18f,
+            t: Mathf.Sqrt(normalizedScore)
+        );
     }
 
     void SpawnRandomCar()
@@ -25,9 +43,18 @@ public class RandomCarGenerator : MonoBehaviour
 
         GameObject selectedCar = GetRandomCarPrefab();
         Transform spawnPoint = GetRandomSpawnPoint();
-        GameObject carInstance = InstantiateCar(selectedCar, spawnPoint);
-        RotateCar(carInstance, spawnLeft);
-        AddCarMoverComponent(carInstance, spawnLeft);
+        GameObject carInstance = InstantiateCar(
+            carPrefab: selectedCar,
+            spawnPoint: spawnPoint
+        );
+        RotateCar(
+            carInstance: carInstance,
+            isLeft: spawnLeft
+        );
+        AddCarMoverComponent(
+            carInstance: carInstance,
+            isLeft: spawnLeft
+        );
     }
 
     GameObject GetRandomCarPrefab()

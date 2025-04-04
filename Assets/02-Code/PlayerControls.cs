@@ -6,7 +6,7 @@ public class PlayerControls : MonoBehaviour
     private Transform _playerTransform;
     private Transform _camera;
     private ScoreText _scoreText;
-    public int score = 0;
+    public static int score = 0;
 
     public delegate void OnPlayerMovedForward(Transform playerTransform);
     public static event OnPlayerMovedForward playerMovedForwardEvent;
