@@ -59,6 +59,7 @@ public class PlayerControls : MonoBehaviour
         ), Quaternion.Euler(20, 0, 0));
 
         score = 0;
+        _scoreText.SetScore(score);
     }
 
     public void Update()
