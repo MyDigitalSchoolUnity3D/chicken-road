@@ -23,6 +23,11 @@ public class MenuEnd : MonoBehaviour
 
     void OnPlayerKilled()
     {
+        Invoke(nameof(ShowMenu), 0.5f);
+    }
+
+    void ShowMenu()
+    {
         menu.SetActive(true);
     }
 

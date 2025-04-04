@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TriggerCarCollision : MonoBehaviour
 {
-    public float launchForce = 10f;
+    public float launchForce = 14f;
     public delegate void OnPlayerKilled();
     public static event OnPlayerKilled playerKilledEvent;
 
@@ -24,8 +24,8 @@ public class TriggerCarCollision : MonoBehaviour
             return;
         }
 
-        // Appliquer une force vers le haut et en arrière pour le faire voler en vrille
-        Vector3 launchDirection = (Vector3.up * launchForce) + (Vector3.forward * Random.Range(-15f, 15f)) + (Vector3.right * Random.Range(-15f, 15f));
+        // Ajoute une force de lancement
+        Vector3 launchDirection = Vector3.up * launchForce;
         rb.AddForce(launchDirection, ForceMode.Impulse);
         rb.AddForce(launchDirection, ForceMode.VelocityChange);
         rb.AddForce(launchDirection, ForceMode.Acceleration);

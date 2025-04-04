@@ -7,31 +7,24 @@ public class PlayerControls : MonoBehaviour
     private Transform _camera;
     private ScoreText _scoreText;
     public static int score = 0;
+    public bool disabledControls = false;
 
     public delegate void OnPlayerMovedForward(Transform playerTransform);
     public static event OnPlayerMovedForward playerMovedForwardEvent;
 
     void Awake()
     {
-        TriggerCarCollision.playerKilledEvent += OnPlayerKilled;
+        TriggerCarCollision.playerKilledEvent += HandlePlayerDeath;
     }
 
     void OnDestroy()
     {
-        TriggerCarCollision.playerKilledEvent -= OnPlayerKilled;
+        TriggerCarCollision.playerKilledEvent -= HandlePlayerDeath;
     }
 
-    void OnPlayerKilled()
+    private void HandlePlayerDeath()
     {
-        StartCoroutine(HandlePlayerDeath());
-    }
-
-    private System.Collections.IEnumerator HandlePlayerDeath()
-    {
-        yield return new WaitForSeconds(2f);
-
-        // Destroy(_playerTransform.gameObject);
-        _playerTransform.gameObject.SetActive(false);
+        disabledControls = true;
     }
 
     private void MovePlayer(Vector3 direction, Quaternion rotation)
@@ -70,6 +63,8 @@ public class PlayerControls : MonoBehaviour
 
     public void Update()
     {
+        if (disabledControls) return;
+
         if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.W))
         {
             if (IsGoingToBumpATree(Vector3.forward)) return;
