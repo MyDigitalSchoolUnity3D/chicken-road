@@ -6,6 +6,8 @@ public class PlayerControls : MonoBehaviour
     private Transform _playerTransform;
     private Transform _camera;
     private ScoreText _scoreText;
+    private EndScoreText _endScoreText;
+    private BestScoreText _bestScoreText;
     public static int score = 0;
     public bool disabledControls = false;
 
@@ -24,7 +26,10 @@ public class PlayerControls : MonoBehaviour
 
     private void HandlePlayerDeath()
     {
+        // Désactive les contrôles du joueur
         disabledControls = true;
+
+        Invoke(nameof(SetScoreMenu), 0.5f);
     }
 
     private void MovePlayer(Vector3 direction, Quaternion rotation)
@@ -102,5 +107,17 @@ public class PlayerControls : MonoBehaviour
             score = (int)Math.Floor(z) * 10;
             _scoreText.SetScore(score);
         }
+    }
+
+    private void SetScoreMenu()
+    {
+        DataPersistenceManager.instance.SaveGame();
+
+        _endScoreText = FindFirstObjectByType<EndScoreText>();
+        _bestScoreText = FindFirstObjectByType<BestScoreText>();
+
+        // Enregistre le score
+        _bestScoreText.SetScore();
+        _endScoreText.SetScore(score);
     }
 }
